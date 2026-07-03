@@ -1,0 +1,48 @@
+emg_inference_node:
+  ros__parameters:
+    port: /dev/ttyACM0
+    baud: 921600
+    # --- model slots (500 Hz, 12-id space, v3_env + cheez_env) ---
+    # Slot 1: the old 12-class envelope classifier (~chance accuracy).
+    model_path: /home/salma/emg_ws/emg_ml/models/classical_v0w_12g.joblib
+    # Slot 2 (ACTIVE): the classical_6g RF model (6 gestures + REST), trained WITH
+    # the 50 Hz mains notch. Outputs the original 12 gesture ids (REST=0), so the
+    # bridge map needs no change. To use the CRNN instead, point this at rcnn_6g.joblib.
+    retrained_model_path: /home/salma/emg_ws/emg_ml/models/classical_6g.joblib
+    use_retrained: true
+    win_ms: 200          # 200 ms @ 500 Hz = 100-sample window
+    hop_ms: 100          # 100 ms @ 500 Hz = 50-sample hop
+    vote_window: 5
+    rest_confidence: 0.60
+    mains: 50            # live causal mains notch (Hz); MUST match the model's training (50)
+
+emg_bridge_node:
+  ros__parameters:
+    # Gesture -> joint jog map. Each entry is "GESTURE:joint:sign".
+    # While a gesture is held, that joint jogs by sign*step every tick.
+    # Joints: j1 base, j2 shoulder, j3 forearm, j4 wrist, j5 wrist-roll.
+    # Edit freely to re-assign gestures; unlisted gestures (incl. REST) HOLD.
+    gesture_map:
+      - "EXTENSION:j3:+1"        # EXTENSION/FLEXION -> j3
+      - "FLEXION:j3:-1"
+      - "EXTEND_ELBOW:j2:+1"     # ELBOW extend/retract -> j2
+      - "RETRACT_ELBOW:j2:-1"
+      - "DOWNWARD_ROT_CW:j1:-1"  # base turntable
+      - "DOWNWARD_ROT_CCW:j1:+1"
+      - "FRONT_ROT_CW:j5:+1"     # wrist roll
+      - "FRONT_ROT_CCW:j5:-1"
+      - "ULNAR_DEV:j4:+1"        # wrist
+      - "RADIAL_DEV:j4:-1"
+    grip_gesture: GRIP          # this gesture toggles the gripper open<->closed
+    step: 0.03                  # rad per tick (x rate_hz = jog speed)
+    rate_hz: 20.0
+    min_confidence: 0.0         # 0 = act on any gesture; raise as the model improves
+    signal_timeout: 0.5         # s with no gesture -> HOLD (deadman)
+    gripper_open: -0.51
+    gripper_closed: 0.288
+    grip_cooldown: 0.8          # s between gripper toggles (chatter guard); first GRIP closes
+    # --- vote mode (ON: one decisive move every vote_window s, no jerking) ---
+    vote_window: 3.0            # s; collect predictions for this long, then fire the MAJORITY
+                                #   gesture ONCE. 0 = continuous jog. (launch arg defaults to 3.0 too)
+    fire_step: 0.20             # rad to move per FIRE in vote mode (the size of each single move)
+    min_vote: 0.34             # winner must be >= this fraction of the window, else HOLD

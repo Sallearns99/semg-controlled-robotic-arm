@@ -1,0 +1,19 @@
+# EMG inference deps for the Raspberry Pi 4B (aarch64 / Ubuntu 24.04).
+#   pip3 install -r requirements-inference.txt
+#
+# This is the CLASSIFIER half (turns the ESP serial stream into gesture names).
+# It is separate from ../arm_control/requirements.txt (the servo half).
+
+# ---- Required for the CRNN model (models/rcnn_best_model.joblib) ----
+numpy
+pandas            # emg_config imports it at module load
+joblib            # loads the .joblib model
+scipy             # live 50 Hz mains notch (mains_notch.py). Needed unless you run --mains off.
+torch             # CPU aarch64 wheel from PyPI (~80 MB). The CRNN needs this.
+                  # librosa / numba are NOT needed for the CRNN (lazy-imported).
+# pyserial        # OPTIONAL — only for USB (--port). WiFi (--host) needs NO pyserial.
+
+# ---- Only if you run the CLASSICAL model instead (models/classical_6g_best_model.joblib) ----
+# scikit-learn
+# librosa         # pulls numba; the CRNN does not use it
+# scipy           # only if you enable the mains-filter path (off by default)

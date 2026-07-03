@@ -1,0 +1,21 @@
+# Build / dependency artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+build/
+install/
+log/
+slprj/
+*.slxc
+*.asv
+# Large binaries (commit via Git LFS or release assets instead)
+*.joblib
+*.pt
+*.pth
+*.avi
+*.mp4
+# OS
+.DS_Store
+Thumbs.db

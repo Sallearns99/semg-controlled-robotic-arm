@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rotatedauto">
+  <!-- World anchor + ground footprint; base_link is stood upright (arm -Y -> +Z) and lifted onto the floor. -->
+  <link
+    name="world" />
+  <link
+    name="base_footprint" />
+  <joint
+    name="world_to_footprint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="base_footprint" />
+  </joint>
+  <joint
+    name="base_footprint_to_base"
+    type="fixed">
+    <origin
+      xyz="0 0 0.09"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.45163930153973E-05 -0.000785015033666168 -0.0571090387432575"
+        rpy="0 0 0" />
+      <mass
+        value="0.612624196035198" />
+      <inertia
+        ixx="0.00104057382181815"
+        ixy="-1.47166594398916E-06"
+        ixz="-1.80561556343222E-07"
+        iyy="0.00106913963546052"
+        iyz="6.39936526460991E-07"
+        izz="0.0020494663114152" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="l1">
+    <inertial>
+      <origin
+        xyz="0.00799384464764848 -9.41073481146524E-05 5.05844262983888E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.412047798150532" />
+      <inertia
+        ixx="0.000928404022931925"
+        ixy="-1.91649283868352E-07"
+        ixz="1.03015013255724E-08"
+        iyy="0.000518397240681584"
+        iyz="1.70013016470992E-06"
+        izz="0.000549935104581139" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j1"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="3.0629 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="l1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+  <link
+    name="l2">
+    <inertial>
+      <origin
+        xyz="-0.0977775255050925 -0.00646119707077256 0.00270158011766901"
+        rpy="0 0 0" />
+      <mass
+        value="0.496010213924852" />
+      <inertia
+        ixx="0.000178689315928175"
+        ixy="-0.000101836384895985"
+        ixz="-1.64227883684855E-06"
+        iyy="0.00171305355616528"
+        iyz="-1.0852199984749E-07"
+        izz="0.00185159928895766" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j2"
+    type="continuous">
+    <origin
+      xyz="0.04205 0 0"
+      rpy="-3.0879 -6.2052E-05 -3.1404" />
+    <parent
+      link="l1" />
+    <child
+      link="l2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+  <link
+    name="l3">
+    <inertial>
+      <origin
+        xyz="-0.00208321551742808 -0.0554794178115117 0.000238443804988416"
+        rpy="0 0 0" />
+      <mass
+        value="0.243053670555902" />
+      <inertia
+        ixx="0.000533828526222675"
+        ixy="-1.65337914352172E-05"
+        ixz="-1.80265656509772E-08"
+        iyy="7.26410262028623E-05"
+        iyz="2.54785358090794E-08"
+        izz="0.000572156672793709" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j3"
+    type="continuous">
+    <origin
+      xyz="-0.183649470740158 -0.0121356663129733 0"
+      rpy="0 0 -1.52898088222841" />
+    <parent
+      link="l2" />
+    <child
+      link="l3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+  <link
+    name="l4">
+    <inertial>
+      <origin
+        xyz="-0.000394374351686404 0.00144455097160109 -0.0337686814103804"
+        rpy="0 0 0" />
+      <mass
+        value="0.381416921085215" />
+      <inertia
+        ixx="0.000349560240552801"
+        ixy="1.6940658945086E-20"
+        ixz="1.0410624174425E-06"
+        iyy="0.000273848932102221"
+        iyz="3.76678743344276E-08"
+        izz="0.000112118352597873" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j4"
+    type="continuous">
+    <origin
+      xyz="-0.00297223967681405 -0.117462401607083 0"
+      rpy="0.181773398369719 -1.57079631189374 -1.78487790419712" />
+    <parent
+      link="l3" />
+    <child
+      link="l4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+  <link
+    name="l5">
+    <inertial>
+      <origin
+        xyz="1.76943876217805E-11 -0.0153083577816068 -0.059281114368264"
+        rpy="0 0 0" />
+      <mass
+        value="0.0979788719174206" />
+      <inertia
+        ixx="4.55048725493735E-05"
+        ixy="-6.44882689864726E-15"
+        ixz="-6.68284086685763E-13"
+        iyy="4.61267068197987E-05"
+        iyz="1.92815060113569E-06"
+        izz="1.35440423695337E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j5"
+    type="continuous">
+    <origin
+      xyz="0.00431003521761511 0.0206851212743065 -0.07445"
+      rpy="0 0 1.68158513269406" />
+    <parent
+      link="l4" />
+    <child
+      link="l5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+  <link
+    name="l6r">
+    <inertial>
+      <origin
+        xyz="-0.0181710942909363 -0.00272181116049123 -0.0104996856618303"
+        rpy="0 0 0" />
+      <mass
+        value="0.0295401711799883" />
+      <inertia
+        ixx="3.75664389596774E-05"
+        ixy="3.4127205865121E-07"
+        ixz="-3.78504365614721E-06"
+        iyy="4.51402552859558E-05"
+        iyz="2.69982668135981E-06"
+        izz="9.04604180358892E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l6r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l6r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j6r"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.094339964782384"
+      rpy="0 0.495427955427081 -3.14159265358979" />
+    <parent
+      link="l5" />
+    <child
+      link="l6r" />
+    <axis
+      xyz="0 1 0" />
+    <!-- follower: mirrors the driver j6l at the 1.13:2.36 reverse gear ratio -->
+    <mimic
+      joint="j6l"
+      multiplier="-2.0885"
+      offset="0" />
+  </joint>
+  <link
+    name="l6l">
+    <inertial>
+      <origin
+        xyz="0.0260082538049205 0.00252851999352315 -0.0074747378916018"
+        rpy="0 0 0" />
+      <mass
+        value="0.0235862116962031" />
+      <inertia
+        ixx="1.20446137578521E-05"
+        ixy="1.1525330011469E-06"
+        ixz="7.71045930271547E-06"
+        iyy="2.057888386215E-05"
+        iyz="-1.3006840509167E-06"
+        izz="9.73475111379412E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l6l.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rotatedauto/meshes/l6l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j6l"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.094339964782384"
+      rpy="0 0.0671805777502923 -3.14159265358979" />
+    <parent
+      link="l5" />
+    <child
+      link="l6l" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="100"
+      velocity="3.0" />
+  </joint>
+</robot>

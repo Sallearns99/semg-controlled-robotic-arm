@@ -1,0 +1,13 @@
+{
+  "win_ms": 200,
+  "win_samples": 400,
+  "hop_ms": 100,
+  "hop_samples": 200,
+  "drop_ms": 50,
+  "fs": 2000,
+  "n_mfcc": 8,
+  "mfcc_n_fft": 64,
+  "mfcc_win": 64,
+  "mfcc_hop": 32,
+  "n_features": 76
+}

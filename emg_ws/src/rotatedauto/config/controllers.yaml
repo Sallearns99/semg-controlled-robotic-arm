@@ -1,0 +1,41 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: true
+
+# Drives ONLY j6l. j6r follows automatically via the URDF <mimic> tag
+# (multiplier -2.0885 = 1.13:2.36 reverse gear ratio). Do NOT add j6r here.
+gripper_controller:
+  ros__parameters:
+    joints:
+      - j6l
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: true

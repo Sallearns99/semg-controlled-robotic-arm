@@ -1,0 +1,27 @@
+{
+  "participant_id": 1,
+  "timestamp": "20260531_044310",
+  "num_sensors": 2,
+  "ch1_muscle": "Muscle A",
+  "ch2_muscle": "Muscle B",
+  "active_channels": [
+    1,
+    2
+  ],
+  "sample_rate_hz": 2000,
+  "samples_per_trial": 12000,
+  "num_cycles": 5,
+  "gesture_order": [
+    "REST",
+    "EXTENSION",
+    "FLEXION",
+    "ULNAR_DEV",
+    "RADIAL_DEV",
+    "GRIP",
+    "ABDUCTION",
+    "ADDUCTION",
+    "SUPINATION",
+    "PRONATION"
+  ],
+  "csv_file": "P1_20260531_044310.csv"
+}

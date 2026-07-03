@@ -1,0 +1,4 @@
+# Raspberry Pi servo control deps (install on the Pi, not the dev PC).
+#   pip3 install -r requirements.txt
+# Pulls in Adafruit Blinka (board/busio) + the PCA9685 servo driver.
+adafruit-circuitpython-servokit

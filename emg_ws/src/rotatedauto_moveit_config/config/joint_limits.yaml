@@ -1,0 +1,36 @@
+# MoveIt joint limits — velocities from the MG995 (8.05 rad/s no-load @6V).
+# Accelerations are placeholders for trajectory time-parameterization (tune as needed).
+default_velocity_scaling_factor: 0.3
+default_acceleration_scaling_factor: 0.3
+
+joint_limits:
+  j1:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+  j2:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+  j3:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+  j4:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+  j5:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+  j6l:
+    has_velocity_limits: true
+    max_velocity: 8.05
+    has_acceleration_limits: true
+    max_acceleration: 10.0

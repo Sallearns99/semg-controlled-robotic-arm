@@ -1,0 +1,35 @@
+{
+  "split": {
+    "train_cycles": [
+      1,
+      2,
+      3
+    ],
+    "val_cycles": [
+      4
+    ],
+    "test_cycles": [
+      5
+    ],
+    "n_train": 30,
+    "n_val": 10,
+    "n_test": 10
+  },
+  "models": {
+    "SVM": {
+      "val_acc": 20.0,
+      "test_acc": 20.0,
+      "elapsed_s": 4.25
+    },
+    "RF": {
+      "val_acc": 30.0,
+      "test_acc": 20.0,
+      "elapsed_s": 0.72
+    },
+    "GBM": {
+      "val_acc": 30.0,
+      "test_acc": 20.0,
+      "elapsed_s": 1.49
+    }
+  }
+}
