@@ -42,8 +42,8 @@ CHANGES vs v3 (and why each one helps):
 
 Usage:
     python3 train_emg_v4.py \
-        --train_dir /home/salma/Downloads/Split_Data3/Train \
-        --val_dir   /home/salma/Downloads/Split_Data3/Validation \
+        --train_dir ~/Downloads/Split_Data3/Train \
+        --val_dir   ~/Downloads/Split_Data3/Validation \
         --out_dir   ~/emg_model_output_v4 \
         --stride    500 \
         --epochs    120
@@ -466,7 +466,7 @@ def main():
     ap.add_argument('--lr',         type=float, default=3e-4)
     ap.add_argument('--patience',   type=int,   default=20)
     ap.add_argument('--swa_start',  type=int,   default=90,
-                    help='Epoch to begin SWA (typically last 25% of training)')
+                    help='Epoch to begin SWA (typically last 25%% of training)')
     ap.add_argument('--workers',    type=int,   default=4)
     args = ap.parse_args()
 

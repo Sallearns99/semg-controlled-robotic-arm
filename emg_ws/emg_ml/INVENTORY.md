@@ -51,7 +51,7 @@ Serial reader thread → circular 200 ms buffer → every 100 ms hop: AC-couple 
 From an earlier 4-channel/ONNX iteration. Useful for **topic naming convention only**:
 subscribes `/emg_raw` (Float32MultiArray), publishes `/detected_gesture` (String) +
 `/inference_result` (String JSON: gesture+confidence+probs). They hard-code a venv
-(`/home/salma/emg_env/...`) and assume 4 channels — outdated, don't run as-is.
+(`~/emg_env/...`) and assume 4 channels — outdated, don't run as-is.
 
 ## Environment — good news
 All heavy deps are already importable in the **ROS Jazzy system python3**: numpy 2.4, scipy,

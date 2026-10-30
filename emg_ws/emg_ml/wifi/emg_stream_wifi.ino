@@ -14,8 +14,8 @@
 #include <ESPmDNS.h>
 
 // ── EDIT THESE ────────────────────────────────────────────────────────────────
-#define WIFI_SSID     "Salmas"       // 2.4 GHz hotspot name
-#define WIFI_PASSWORD "12345678"     // hotspot password
+#define WIFI_SSID     "your_ssid"     // 2.4 GHz hotspot name
+#define WIFI_PASSWORD "your_password" // hotspot password
 // NOTE: ESP32-S3 is 2.4 GHz only. Use a 2.4 GHz SSID (not a 5 GHz-only one).
 
 #define MDNS_HOSTNAME "esp32"                 // -> reachable as esp32.local

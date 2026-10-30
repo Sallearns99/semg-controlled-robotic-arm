@@ -15,7 +15,7 @@ import os, sys, json
 # ── Force venv packages before system packages ───────────────────────────────
 # Ubuntu 24.04 system scipy compiled against NumPy 1.x crashes on NumPy 2.x.
 # Must happen before ANY scipy/numpy import.
-_VENV = "/home/salma/emg_env/lib/python3.12/site-packages"
+_VENV = os.path.expanduser("~/emg_env/lib/python3.12/site-packages")
 if _VENV not in sys.path:
     sys.path.insert(0, _VENV)
 # ─────────────────────────────────────────────────────────────────────────────

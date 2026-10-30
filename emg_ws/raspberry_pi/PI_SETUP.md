@@ -32,7 +32,7 @@ raspberry_pi/
 From your **dev PC**, send it over (replace `<pi-ip>`):
 
 ```bash
-scp -r "/home/salma/emg_ws/raspberry_pi" salma@<pi-ip>:~/emg/
+scp -r ~/emg_ws/raspberry_pi <pi-user>@<pi-ip>:~/emg/
 ```
 
 Then on the **Pi**, everything below assumes:

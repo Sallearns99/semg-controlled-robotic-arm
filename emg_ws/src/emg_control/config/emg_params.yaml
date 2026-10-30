@@ -4,11 +4,11 @@ emg_inference_node:
     baud: 921600
     # --- model slots (500 Hz, 12-id space, v3_env + cheez_env) ---
     # Slot 1: the old 12-class envelope classifier (~chance accuracy).
-    model_path: /home/salma/emg_ws/emg_ml/models/classical_v0w_12g.joblib
+    model_path: ~/emg_ws/emg_ml/models/classical_v0w_12g.joblib
     # Slot 2 (ACTIVE): the classical_6g RF model (6 gestures + REST), trained WITH
     # the 50 Hz mains notch. Outputs the original 12 gesture ids (REST=0), so the
     # bridge map needs no change. To use the CRNN instead, point this at rcnn_6g.joblib.
-    retrained_model_path: /home/salma/emg_ws/emg_ml/models/classical_6g.joblib
+    retrained_model_path: ~/emg_ws/emg_ml/models/classical_6g.joblib
     use_retrained: true
     win_ms: 200          # 200 ms @ 500 Hz = 100-sample window
     hop_ms: 100          # 100 ms @ 500 Hz = 50-sample hop

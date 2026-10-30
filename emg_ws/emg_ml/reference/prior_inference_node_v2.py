@@ -21,7 +21,7 @@ import numpy as np
 from collections import deque
 
 # ── Force venv before system packages (Ubuntu 24.04 scipy fix) ───────────────
-_VENV = '/home/salma/emg_env/lib/python3.12/site-packages'
+_VENV = os.path.expanduser('~/emg_env/lib/python3.12/site-packages')
 if _VENV not in sys.path:
     sys.path.insert(0, _VENV)
 # ─────────────────────────────────────────────────────────────────────────────

@@ -2,7 +2,7 @@
 
 > **Project:** RP06 — *Design and Implementation of an sEMG-Based Gesture-Controlled
 > Robotic Arm Using Deep Learning.*
-> **Student:** Salma Farid (197607). **Advisors:** Dr. Nourhan Zayed & Dr. Mostafa
+> **Student:** Salma Farid. **Advisors:** Dr. Nourhan Zayed & Dr. Mostafa
 > Abdelaziz. **Institution:** British University in Egypt (BUE), Robotics Engineering —
 > final-year capstone.
 >

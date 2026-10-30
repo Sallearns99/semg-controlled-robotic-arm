@@ -40,8 +40,8 @@ FEATURES — WHY EACH ONE WAS CHOSEN OR REPLACED:
 
 Usage:
     python3 train_emg_model.py \
-        --train_dir   /home/salma/Downloads/Split_Data3/Train \
-        --val_dir     /home/salma/Downloads/Split_Data3/Validation \
+        --train_dir   ~/Downloads/Split_Data3/Train \
+        --val_dir     ~/Downloads/Split_Data3/Validation \
         --out_dir     ./emg_model_output \
         --max_stages  20 \
         --epochs      15 \

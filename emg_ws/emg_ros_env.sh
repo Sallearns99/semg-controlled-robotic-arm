@@ -8,7 +8,7 @@
 source /opt/ros/jazzy/setup.bash
 source ~/emg_ws/install/setup.bash
 export PYTHONNOUSERSITE=1
-export PYTHONPATH=/home/salma/emg_venv/lib/python3.12/site-packages:$PYTHONPATH
+export PYTHONPATH=$HOME/emg_venv/lib/python3.12/site-packages:$PYTHONPATH
 
 # Gazebo GUI fix (2026-06-07): after installing the NVIDIA driver, gz's EGL renderer
 # tried the NVIDIA GPU (10_nvidia.json) and crashed ("failed to create dri2 screen").

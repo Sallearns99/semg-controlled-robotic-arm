@@ -43,7 +43,7 @@ def generate_launch_description():
                               description='Use the retrained model slot (default: the CRNN). '
                                           'Set false to fall back to the old envelope classifier.'),
         DeclareLaunchArgument('retrained_model_path',
-                              default_value='/home/salma/emg_ws/emg_ml/models/classical_6g.joblib',
+                              default_value='~/emg_ws/emg_ml/models/classical_6g.joblib',
                               description='Retrained model (default: the classical_6g RF). '
                                           'Swap to .../models/rcnn_6g.joblib for the CRNN.'),
         DeclareLaunchArgument('vote_window', default_value='3.0',
